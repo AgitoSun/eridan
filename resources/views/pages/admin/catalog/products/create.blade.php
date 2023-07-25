@@ -26,10 +26,10 @@
                             <label for="metal" class="form-label">Металл</label>
                             <select class="form-select @error('metal') is-invalid @enderror" id="metal" name="metal">
                                 <option disabled selected>Выберите металл товара</option>
-                                <option value="Белое золото 585 пробы">Белое золото 585 пробы</option>
-                                <option value="Белое золото 750 пробы">Белое золото 750 пробы</option>
-                                <option value="Желтое золото 585 пробы">Желтое золото 585 пробы</option>
-                                <option value="Желтое золото 585 пробы">Желтое золото 750 пробы</option>
+                                <option value="Белое золото 585 пробы" @selected(old('metal') == 'Белое золото 585 пробы')>Белое золото 585 пробы</option>
+                                <option value="Белое золото 750 пробы" @selected(old('metal') == 'Белое золото 750 пробы')>Белое золото 750 пробы</option>
+                                <option value="Желтое золото 585 пробы" @selected(old('metal') == 'Желтое золото 585 пробы')>Желтое золото 585 пробы</option>
+                                <option value="Желтое золото 585 пробы" @selected(old('metal') == 'Желтое золото 585 пробы')>Желтое золото 750 пробы</option>
                             </select>
                             <x-validation-error error="metal"/>
                         </div>
@@ -43,7 +43,7 @@
                             <select class="form-select @error('category_id') is-invalid @enderror" id="category_id" name="category_id">
                                 <option disabled selected>Выберите категорию товара</option>
                                 @foreach($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->title }}</option>
+                                    <option value="{{ $category->id }}" @selected(old('category_id'))>{{ $category->title }}</option>
                                 @endforeach
                             </select>
                             <x-validation-error error="category_id"/>
@@ -57,8 +57,8 @@
                             <label for="availability" class="form-label">Наличие</label>
                             <select class="form-select @error('availability') is-invalid @enderror" id="availability" name="availability">
                                 <option disabled selected>Выберите наличие товара</option>
-                                <option value="В наличии">В наличии</option>
-                                <option value="Под заказ">Под заказ</option>
+                                <option value="В наличии" @selected(old('availability') == 'В наличии')>В наличии</option>
+                                <option value="Под заказ" @selected(old('availability') == 'Под заказ')>Под заказ</option>
                             </select>
                             <x-validation-error error="availability"/>
                         </div>
@@ -100,6 +100,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="form-check form-check">
+                            <input class="form-check-input" type="checkbox" name="favorites" id="favorites" @checked(old('favorites'))/>
+                            <label class="form-check-label" for="favorites">На главную</label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="card mb-4">
@@ -110,8 +118,9 @@
                                     Основная фотография
                                     <span class="note needsclick">(Загрузите одну фотографию, которая будет основной)</span>
                                 </div>
-                                <div class="fallback">
-                                    <input name="main_image" type="file"/>
+                                <div class="fallback position-relative @error('main_image') mb-5 @enderror">
+                                    <input name="main_image" type="file" class="@error('main_image') is-invalid @enderror"/>
+                                    <x-validation-error error="main_image"/>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -119,8 +128,9 @@
                                     Дополнительные фотографии
                                     <span class="note needsclick">(Загрузите несколько дополнительных фотографий)</span>
                                 </div>
-                                <div class="fallback">
-                                    <input name="image[]" multiple type="file"/>
+                                <div class="fallback position-relative">
+                                    <input name="image[]" multiple type="file" class="@error('image') is-invalid @enderror"/>
+                                    <x-validation-error error="image"/>
                                 </div>
                             </div>
                         </div>

@@ -19,10 +19,7 @@ use Illuminate\Support\Facades\Route;
 | Guest Routes
 |--------------------------------------------------------------------------
 */
-Route::get('/', function () {
-    return view('pages.guest.home');
-})->name('home');
-
+Route::get('/', [\App\Http\Controllers\Guest\HomeController::class, 'index'])->name('home');
 Route::get('/catalog', [\App\Http\Controllers\CatalogController::class, 'index'])->name('catalog.index');
 Route::get('/catalog/category/{category}', [\App\Http\Controllers\CatalogController::class, 'category'])->name('catalog.category');
 Route::get('/catalog/product/{product}', [\App\Http\Controllers\CatalogController::class, 'show'])->name('catalog.show');

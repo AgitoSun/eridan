@@ -101,6 +101,14 @@
                         </div>
                     </div>
                 </div>
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <div class="form-check form-check">
+                            <input class="form-check-input" type="checkbox" name="favorites" id="favorites" @checked($product->favorites)/>
+                            <label class="form-check-label" for="favorites">На главную</label>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-12">
                 <div class="card mb-4">
@@ -111,8 +119,9 @@
                                     Основная фотография
                                     <span class="note needsclick">(Загрузите одну фотографию, которая будет основной)</span>
                                 </div>
-                                <div class="fallback">
-                                    <input name="main_image" type="file"/>
+                                <div class="fallback position-relative @error('main_image') mb-5 @enderror">
+                                    <input name="main_image" type="file" class="@error('main_image') is-invalid @enderror"/>
+                                    <x-validation-error error="main_image"/>
                                 </div>
                             </div>
                             <div class="col-md-6 mb-3">
@@ -121,7 +130,8 @@
                                     <span class="note needsclick">(Загрузите несколько дополнительных фотографий)</span>
                                 </div>
                                 <div class="fallback">
-                                    <input name="image[]" multiple type="file"/>
+                                    <input name="image[]" multiple type="file" class="@error('image') is-invalid @enderror"/>
+                                    <x-validation-error error="image"/>
                                 </div>
                             </div>
                         </div>

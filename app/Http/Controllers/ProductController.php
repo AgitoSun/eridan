@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProductStoreRequest;
+use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -38,9 +37,25 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(ProductStoreRequest $request)
+    public function store(ProductRequest $request)
     {
-        $product = Product::create($request->all());
+        $product = Product::create([
+            'title' => $request->title,
+            'sku' => $request->sku,
+            'metal' => $request->metal,
+            'weight' => $request->weight,
+            'insert_1' => $request->insert_1,
+            'insert_2' => $request->insert_2,
+            'insert_3' => $request->insert_3,
+            'insert_4' => $request->insert_4,
+            'insert_5' => $request->insert_5,
+            'insert_6' => $request->insert_6,
+            'size' => $request->size,
+            'availability' => $request->availability,
+            'price' => $request->price,
+            'category_id' => $request->category_id,
+            'favorites' => $request->favorites == 'on' ? true : false
+        ]);
 
         $main_path = $request->file('main_image')->store('public/img/products/' . $product->sku);
         Image::create([
@@ -87,9 +102,25 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Product $product, Image $image)
+    public function update(ProductRequest $request, Product $product, Image $image)
     {
-        $product->update($request->all());
+        $product->update([
+            'title' => $request->title,
+            'sku' => $request->sku,
+            'metal' => $request->metal,
+            'weight' => $request->weight,
+            'insert_1' => $request->insert_1,
+            'insert_2' => $request->insert_2,
+            'insert_3' => $request->insert_3,
+            'insert_4' => $request->insert_4,
+            'insert_5' => $request->insert_5,
+            'insert_6' => $request->insert_6,
+            'size' => $request->size,
+            'availability' => $request->availability,
+            'price' => $request->price,
+            'category_id' => $request->category_id,
+            'favorites' => $request->favorites == 'on' ? true : false
+        ]);
 
         if ($request->main_image) {
             foreach ($product->images->where('main', 1) as $image) {

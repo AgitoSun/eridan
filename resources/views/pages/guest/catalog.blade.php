@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="d-flex justify-content-between">
                                     <div>
-                                        <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
+                                        <a href="{{ route('catalog.category', $product->category_id) }}" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
                                             {{ $product->category['title'] }}
                                         </a>
                                         <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">

@@ -26,6 +26,7 @@ class Product extends Model
         'availability',
         'price',
         'category_id',
+        'favorites',
     ];
 
     public function category(): BelongsTo

@@ -82,7 +82,7 @@
             </div>
         </div>
     </section>
-
+    @if(count($products)>0)
     <section class="section bg-transparent section-no-border my-0">
         <div class="container pt-3 pb-4">
             <div class="row">
@@ -99,229 +99,41 @@
                 <div class="col-lg-12">
                     <div class="masonry-loader masonry-loader-showing">
                         <div class="row products product-thumb-info-list" data-plugin-masonry data-plugin-options="{'layoutMode': 'fitRows'}">
-
-                            <div class="col-sm-6 col-lg-4">
+                            @foreach($products as $product)
+                                <div class="col-sm-6 col-lg-4">
                                 <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
                                     <div class="product-thumb-info border-0 mb-3">
                                         <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">
-                                                В НАЛИЧИИ
-                                            </span>
-                                            <span class="badge badge-ecommerce badge-danger">
-                                                ПОД ЗАКАЗ
+                                            <span class="badge badge-ecommerce @if($product->availability == 'Под заказ') badge-danger @else badge-success @endif">
+                                                {{ $product->availability }}
                                             </span>
                                         </div>
-                                        <a href="shop-product-sidebar-left.html">
+                                        <a href="{{ route('catalog.show', $product->id) }}">
                                             <div class="product-thumb-info-image">
-                                                <img alt="" class="rounded shop-img" src="{{ Vite::asset('resources/img/guest/catalog/bracelets/rb25/rb25.jpg') }}">
+                                                @foreach($product->images->where('main', 1) as $image)
+                                                    <img alt="" class="rounded shop-img" src="{{ Storage::url($image->path) }}">
+                                                @endforeach
                                             </div>
                                         </a>
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                браслеты
+                                            <a href="{{ route('catalog.category', $product->category_id) }}" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
+                                                {{ $product->category['title'] }}
                                             </a>
                                             <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">
-                                                    РБ-25
-                                                </a></h3>
+                                                <a href="{{ route('catalog.show', $product->id) }}" class="text-color-dark text-color-hover-primary">
+                                                    {{ $product->title }}
+                                                </a>
+                                            </h3>
                                         </div>
                                     </div>
-                                    <div title="Rated 5 out of 5">
-                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
-                                    </div>
                                     <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">69 000 &#8381;</span>
+                                        <span class="text-color-dark font-weight-semi-bold">{{ $product->price }} &#8381;</span>
                                     </p>
                                 </div>
                             </div>
-
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
-                                    <div class="product-thumb-info border-0 mb-3">
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">
-                                                В НАЛИЧИИ
-                                            </span>
-                                            <span class="badge badge-ecommerce badge-danger">
-                                                ПОД ЗАКАЗ
-                                            </span>
-                                        </div>
-                                        <a href="shop-product-sidebar-left.html">
-                                            <div class="product-thumb-info-image">
-                                                <img alt="" class="rounded shop-img" src="{{ Vite::asset('resources/img/guest/catalog/bracelets/rb25/rb25.jpg') }}">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                браслеты
-                                            </a>
-                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">
-                                                    РБ-25
-                                                </a></h3>
-                                        </div>
-                                    </div>
-                                    <div title="Rated 5 out of 5">
-                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
-                                    </div>
-                                    <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">69 000 &#8381;</span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
-                                    <div class="product-thumb-info border-0 mb-3">
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">
-                                                В НАЛИЧИИ
-                                            </span>
-                                            <span class="badge badge-ecommerce badge-danger">
-                                                ПОД ЗАКАЗ
-                                            </span>
-                                        </div>
-                                        <a href="shop-product-sidebar-left.html">
-                                            <div class="product-thumb-info-image">
-                                                <img alt="" class="rounded shop-img" src="{{ Vite::asset('resources/img/guest/catalog/bracelets/rb25/rb25.jpg') }}">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                браслеты
-                                            </a>
-                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">
-                                                    РБ-25
-                                                </a></h3>
-                                        </div>
-                                    </div>
-                                    <div title="Rated 5 out of 5">
-                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
-                                    </div>
-                                    <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">69 000 &#8381;</span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                                    <div class="product-thumb-info border-0 mb-3">
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">
-                                                В НАЛИЧИИ
-                                            </span>
-                                            <span class="badge badge-ecommerce badge-danger">
-                                                ПОД ЗАКАЗ
-                                            </span>
-                                        </div>
-                                        <a href="shop-product-sidebar-left.html">
-                                            <div class="product-thumb-info-image">
-                                                <img alt="" class="rounded shop-img" src="{{ Vite::asset('resources/img/guest/catalog/bracelets/rb25/rb25.jpg') }}">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                браслеты
-                                            </a>
-                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">
-                                                    РБ-25
-                                                </a></h3>
-                                        </div>
-                                    </div>
-                                    <div title="Rated 5 out of 5">
-                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
-                                    </div>
-                                    <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">69 000 &#8381;</span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                                    <div class="product-thumb-info border-0 mb-3">
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">
-                                                В НАЛИЧИИ
-                                            </span>
-                                            <span class="badge badge-ecommerce badge-danger">
-                                                ПОД ЗАКАЗ
-                                            </span>
-                                        </div>
-                                        <a href="shop-product-sidebar-left.html">
-                                            <div class="product-thumb-info-image">
-                                                <img alt="" class="rounded shop-img" src="{{ Vite::asset('resources/img/guest/catalog/bracelets/rb25/rb25.jpg') }}">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                браслеты
-                                            </a>
-                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">
-                                                    РБ-25
-                                                </a></h3>
-                                        </div>
-                                    </div>
-                                    <div title="Rated 5 out of 5">
-                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
-                                    </div>
-                                    <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">69 000 &#8381;</span>
-                                    </p>
-                                </div>
-                            </div>
-
-                            <div class="col-sm-6 col-lg-4">
-                                <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="300">
-                                    <div class="product-thumb-info border-0 mb-3">
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce badge-success">
-                                                В НАЛИЧИИ
-                                            </span>
-                                            <span class="badge badge-ecommerce badge-danger">
-                                                ПОД ЗАКАЗ
-                                            </span>
-                                        </div>
-                                        <a href="shop-product-sidebar-left.html">
-                                            <div class="product-thumb-info-image">
-                                                <img alt="" class="rounded shop-img" src="{{ Vite::asset('resources/img/guest/catalog/bracelets/rb25/rb25.jpg') }}">
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <a href="#" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                браслеты
-                                            </a>
-                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="shop-product-sidebar-right.html" class="text-color-dark text-color-hover-primary">
-                                                    РБ-25
-                                                </a></h3>
-                                        </div>
-                                    </div>
-                                    <div title="Rated 5 out of 5">
-                                        <input type="text" class="d-none" value="5" title="" data-plugin-star-rating data-plugin-options="{'displayOnly': true, 'color': 'default', 'size':'xs'}">
-                                    </div>
-                                    <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">69 000 &#8381;</span>
-                                    </p>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -335,7 +147,7 @@
             </div>
         </div>
     </section>
-
+    @endif
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 bg-primary order-2 order-lg-1 p-0">
