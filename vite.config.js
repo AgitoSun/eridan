@@ -13,6 +13,7 @@ export default defineConfig({
                 'resources/css/guest/demo-law-firm.css',
                 'resources/css/guest/skins/skin-law-firm.css',
                 'resources/css/guest/custom.css',
+                'resources/js/guest/examples.gallery.js',
                 'resources/css/admin/select2.css',
                 'resources/css/admin/boxicons.css',
                 'resources/css/admin/core.css',
