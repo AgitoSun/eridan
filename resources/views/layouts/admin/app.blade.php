@@ -51,7 +51,6 @@
         'resources/js/admin/menu.js',
         'resources/js/admin/main.js',
         'resources/js/admin/select2.js',
-        'resources/js/admin/autosize.js',
     ])
     <script async defer src="https://buttons.github.io/buttons.js"></script>
 
