@@ -12,29 +12,29 @@
         <div class="owl-carousel dots-inside dots-horizontal-center show-dots-hover nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
 
             <!-- Carousel Slide 1 -->
-            <div class="position-relative" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url({{ Vite::asset('resources/img/guest/home/home-banner2.jpg') }}); background-size: cover; background-position: center; height: 670px;">
+{{--            <div class="position-relative" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url({{ Vite::asset('resources/img/guest/home/home-banner2.jpg') }}); background-size: cover; background-position: center; height: 670px;">--}}
 
-                <div class="container h-100">
-                    <div class="row h-100">
-                        <div class="col-lg-6">
-                            <div class="d-flex flex-column justify-content-center h-100">
-                                <p class="custom-font-slider-2 text-dark" data-plugin-animated-letters data-plugin-options="{'startDelay': 750, 'minWindowWidth': 0, 'animationSpeed': 30}">
-                                    ЮВЕЛИРНАЯ СТУДИЯ / ОГРАНОЧНОЕ ПРОИЗВОДСТВО
-                                </p>
-                                <h2 class="custom-font-slider-1 mb-0 font-weight-bold appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">
-                                    Грудаков Сергей
-                                </h2>
-                                <div class="divider divider-primary divider-small text-start mt-2 mb-4 mx-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750">
-                                    <hr class="my-0">
-                                </div>
-                                <p class="text-3-5 line-height-9 appear-animation text-dark" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000">
-                                    На нашем производстве мы граним драгоценные и полудрагоценные камни со всего мира.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+{{--                <div class="container h-100">--}}
+{{--                    <div class="row h-100">--}}
+{{--                        <div class="col-lg-6">--}}
+{{--                            <div class="d-flex flex-column justify-content-center h-100">--}}
+{{--                                <p class="custom-font-slider-2 text-dark" data-plugin-animated-letters data-plugin-options="{'startDelay': 750, 'minWindowWidth': 0, 'animationSpeed': 30}">--}}
+{{--                                    ЮВЕЛИРНАЯ СТУДИЯ / ОГРАНОЧНОЕ ПРОИЗВОДСТВО--}}
+{{--                                </p>--}}
+{{--                                <h2 class="custom-font-slider-1 mb-0 font-weight-bold appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="500" data-plugin-options="{'minWindowWidth': 0}">--}}
+{{--                                    Грудаков Сергей--}}
+{{--                                </h2>--}}
+{{--                                <div class="divider divider-primary divider-small text-start mt-2 mb-4 mx-0 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="750">--}}
+{{--                                    <hr class="my-0">--}}
+{{--                                </div>--}}
+{{--                                <p class="text-3-5 line-height-9 appear-animation text-dark" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000">--}}
+{{--                                    На нашем производстве мы граним драгоценные и полудрагоценные камни со всего мира.--}}
+{{--                                </p>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 
