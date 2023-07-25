@@ -49,13 +49,15 @@ class ProductController extends Controller
             'product_id' => $product->id
         ]);
 
-        foreach ($request->file('image') as $file) {
-            $path = $file->store('public/img/products/' . $product->sku);
-            Image::create([
-                'path' => $path,
-                'main' => 0,
-                'product_id' => $product->id
-            ]);
+        if ($request->file('image')) {
+            foreach ($request->file('image') as $file) {
+                $path = $file->store('public/img/products/' . $product->sku);
+                Image::create([
+                    'path' => $path,
+                    'main' => 0,
+                    'product_id' => $product->id
+                ]);
+            }
         }
 
         return redirect()->route('products.index')->with('success', 'Товар ' . $request->title . ' успешно добавлен');
