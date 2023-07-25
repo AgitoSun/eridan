@@ -9,6 +9,4 @@ Alpine.start();
 import.meta.glob([
     '../img/**',
     '../fonts/**',
-    '../css/admin/**',
-    '../css/guest/**',
 ]);
