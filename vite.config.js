@@ -28,7 +28,7 @@ export default defineConfig({
                 'resources/js/admin/menu.js',
                 'resources/js/admin/main.js',
                 'resources/js/admin/select2.js',
-                'resources/js/admin/autosize.js',
+                'resources/css/admin/page-auth.css',
                 'resources/js/app.js',
             ],
             refresh: true,
