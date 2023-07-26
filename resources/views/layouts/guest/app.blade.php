@@ -7,6 +7,7 @@
         <div class="body">
             <!-- Header -->
             @include('layouts.guest.header')
+{{--            @include('layouts.guest.header-mobile')--}}
 
             <!-- Content -->
             <div role="main" class="main">

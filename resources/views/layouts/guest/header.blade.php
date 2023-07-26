@@ -3,13 +3,13 @@
         <div class="header-container container z-index-2">
             <div class="header-row">
                 <div class="header-column">
-                    <div class="header-row">
+                    <div class="header-row justify-content-center">
                         <div class="header-logo">
                             @include('layouts.guest.logo.header-logo')
                         </div>
                     </div>
                 </div>
-                <div class="header-column justify-content-end">
+                <div class="header-column justify-content-end d-none d-lg-block">
                     <div class="header-row h-100">
                         <ul class="header-extra-info d-flex h-100 align-items-center">
                             <li class="align-items-center d-none d-lg-block h-100 py-4">
