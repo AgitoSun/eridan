@@ -52,9 +52,15 @@
                                         </h3>
                                     </div>
                                 </div>
-                                <p class="price text-5 mb-3">
-                                    <span class="text-color-dark font-weight-semi-bold">{{ $product->price }} &#8381;</span>
-                                </p>
+                                @if($product->price)
+                                    <p class="price text-5 mb-3">
+                                        <span class="text-color-dark font-weight-semi-bold">{{ $product->price }} &#8381;</span>
+                                    </p>
+                                @else
+                                    <p class="price text-5 mb-3">
+                                        <span class="text-color-dark font-weight-semi-bold">По запросу</span>
+                                    </p>
+                                @endif
                             </div>
                         </div>
                         @endforeach
