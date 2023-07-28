@@ -143,7 +143,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-3">
+                                    <h3 class="text-4 font-weight-bold font-alternative text-transform-none line-height-3 mb-3">
                                         <a href="{{ route('catalog.category', $product->category_id) }}" class="text-color-dark text-color-hover-primary">
                                             {{ $product->category['title'] }}
                                         </a>
@@ -201,7 +201,6 @@
                             </div>
                         </div>
                     </div>
-
                 </section>
             </div>
             <div class="d-lg-none col-lg-6 order-1 order-lg-2 p-0 bg-color-quaternary">
@@ -216,7 +215,6 @@
                             </div>
                         </div>
                     </div>
-
                 </section>
             </div>
         </div>

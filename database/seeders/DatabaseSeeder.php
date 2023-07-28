@@ -27,13 +27,5 @@ class DatabaseSeeder extends Seeder
             'created_at' => now(),
             'updated_at' => now(),
         ]);
-
-        \App\Models\User::factory()->create([
-            'name' => 'User',
-            'email' => 'zeke1@mail.ru',
-            'password' => Hash::make('RNVKD13zeke5361500'),
-            'created_at' => now(),
-            'updated_at' => now(),
-        ]);
     }
 }
