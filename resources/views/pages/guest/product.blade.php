@@ -34,9 +34,15 @@
                         <hr class="my-0 me-auto">
                     </div>
 
-                    <p class="price mb-3">
-                        <span class="sale text-color-dark">{{ $product->price }} &#8381;</span>
-                    </p>
+                    @if($product->price)
+                        <p class="price mb-3">
+                            <span class="sale text-color-dark">{{ $product->price }} &#8381;</span>
+                        </p>
+                    @else
+                        <p class="price mb-3">
+                            <span class="sale text-color-dark">По запросу</span>
+                        </p>
+                    @endif
 
                     <span class="badge @if($product->availability == 'Под заказ') badge-danger @else badge-success @endif badge-md">{{ $product->availability }}</span>
 
