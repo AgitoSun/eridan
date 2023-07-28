@@ -189,8 +189,23 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 order-1 order-lg-2 p-0 bg-color-quaternary">
+            <div class="d-none d-lg-block col-lg-6 order-1 order-lg-2 p-0 bg-color-quaternary">
                 <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="{{ Vite::asset('resources/img/guest/home/how-we-work.jpg') }}" style="min-height: 450px; object-fit:cover;">
+                    <div class="h-100 m-0">
+                        <div class="row m-0">
+                            <div class="col-half-section col-half-section-left">
+                                <div class="p-3 p-relative zindex-1">
+                                    <div class="appear-animation" data-appear-animation="fadeInLeftShorter" data-appear-animation-delay="400">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+            <div class="d-lg-none col-lg-6 order-1 order-lg-2 p-0 bg-color-quaternary">
+                <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="{{ Vite::asset('resources/img/guest/home/how-we-work-mobile.jpg') }}" style="min-height: 450px; object-fit:cover;">
                     <div class="h-100 m-0">
                         <div class="row m-0">
                             <div class="col-half-section col-half-section-left">
