@@ -11,7 +11,7 @@
         </div>
         <div class="owl-carousel dots-inside dots-horizontal-center show-dots-hover nav-inside nav-inside-plus nav-dark nav-md nav-font-size-md show-nav-hover mb-0" data-plugin-options="{'responsive': {'0': {'items': 1}, '479': {'items': 1}, '768': {'items': 1}, '979': {'items': 1}, '1199': {'items': 1}}, 'loop': false, 'autoHeight': false, 'margin': 0, 'dots': true, 'dotsVerticalOffset': '-75px', 'nav': true, 'animateIn': 'fadeIn', 'animateOut': 'fadeOut', 'mouseDrag': false, 'touchDrag': false, 'pullDrag': false, 'autoplay': true, 'autoplayTimeout': 9000, 'autoplayHoverPause': true, 'rewind': true}">
             <!-- Carousel Slide 1 -->
-            <div class="position-relative" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url({{ Vite::asset('resources/img/guest/home/home-banner2.jpg') }}); background-size: cover; background-position: center; height: 670px;">
+            <div class="position-relative" data-dynamic-height="['670px','670px','670px','550px','500px']" style="background-image: url({{ Vite::asset('resources/img/guest/home/home-banner.jpg') }}); background-size: cover; background-position: center; height: 670px;">
                 <div class="container h-100">
                     <div class="row h-100">
                         <div class="col-lg-6">
@@ -135,12 +135,7 @@
                                 <div class="col-sm-6 col-lg-4">
                                 <div class="product mb-0 appear-animation" data-appear-animation="fadeInUp" data-appear-animation-delay="0">
                                     <div class="product-thumb-info border-0 mb-3">
-                                        <div class="product-thumb-info-badges-wrapper">
-                                            <span class="badge badge-ecommerce @if($product->availability == 'Под заказ') badge-danger @else badge-success @endif">
-                                                {{ $product->availability }}
-                                            </span>
-                                        </div>
-                                        <a href="{{ route('catalog.show', $product->id) }}">
+                                        <a href="{{ route('catalog.category', $product->category_id) }}">
                                             <div class="product-thumb-info-image">
                                                 @foreach($product->images->where('main', 1) as $image)
                                                     <img alt="" class="rounded shop-img" src="{{ Storage::url($image->path) }}">
@@ -150,19 +145,13 @@
                                     </div>
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <a href="{{ route('catalog.category', $product->category_id) }}" class="d-block text-uppercase text-decoration-none text-color-default text-color-hover-primary line-height-1 text-0 mb-1">
-                                                {{ $product->category['title'] }}
-                                            </a>
                                             <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="{{ route('catalog.show', $product->id) }}" class="text-color-dark text-color-hover-primary">
-                                                    {{ $product->title }}
+                                                <a href="{{ route('catalog.category', $product->category_id) }}" class="text-color-dark text-color-hover-primary">
+                                                    {{ $product->category['title'] }}
                                                 </a>
                                             </h3>
                                         </div>
                                     </div>
-                                    <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">{{ $product->price }} &#8381;</span>
-                                    </p>
                                 </div>
                             </div>
                             @endforeach
@@ -171,7 +160,7 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col text-center">
+                <div class="col text-center mt-5">
                     <a href="{{ route('catalog.index') }}" class="btn btn-primary custom-btn-border-radius font-weight-bold text-3 btn-px-5 btn-py-3 appear-animation animated fadeInUpShorterPlus appear-animation-visible" data-appear-animation="fadeInUpShorterPlus" data-appear-animation-delay="850" style="animation-delay: 850ms;">
                         СМОТРЕТЬ ВСЕ
                     </a>
@@ -205,7 +194,7 @@
                 </div>
             </div>
             <div class="col-lg-6 order-1 order-lg-2 p-0 bg-color-quaternary">
-                <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="{{ Vite::asset('resources/img/guest/home/how-we-work-3.jpg') }}" style="min-height: 450px; object-fit:cover;">
+                <section class="parallax section section-parallax custom-parallax-bg-pos-left custom-sec-left h-100 m-0" data-plugin-parallax data-plugin-options="{'speed': 1.5, 'horizontalPosition': '100%'}" data-image-src="{{ Vite::asset('resources/img/guest/home/how-we-work.jpg') }}" style="min-height: 450px; object-fit:cover;">
                     <div class="h-100 m-0">
                         <div class="row m-0">
                             <div class="col-half-section col-half-section-left">
