@@ -143,15 +143,11 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="d-flex justify-content-between">
-                                        <div>
-                                            <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-0">
-                                                <a href="{{ route('catalog.category', $product->category_id) }}" class="text-color-dark text-color-hover-primary">
-                                                    {{ $product->category['title'] }}
-                                                </a>
-                                            </h3>
-                                        </div>
-                                    </div>
+                                    <h3 class="text-3-5 font-weight-medium font-alternative text-transform-none line-height-3 mb-3">
+                                        <a href="{{ route('catalog.category', $product->category_id) }}" class="text-color-dark text-color-hover-primary">
+                                            {{ $product->category['title'] }}
+                                        </a>
+                                    </h3>
                                 </div>
                             </div>
                             @endforeach
