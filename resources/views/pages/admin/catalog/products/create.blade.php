@@ -30,6 +30,8 @@
                                 <option value="Белое золото 750 пробы" @selected(old('metal') == 'Белое золото 750 пробы')>Белое золото 750 пробы</option>
                                 <option value="Желтое золото 585 пробы" @selected(old('metal') == 'Желтое золото 585 пробы')>Желтое золото 585 пробы</option>
                                 <option value="Желтое золото 585 пробы" @selected(old('metal') == 'Желтое золото 585 пробы')>Желтое золото 750 пробы</option>
+                                <option value="Розовое золото 750 пробы" @selected(old('metal') == 'Розовое золото 750 пробы')>Розовое золото 750 пробы</option>
+                                <option value="Черное золото 585 пробы" @selected(old('metal') == 'Черное золото 585 пробы')>Черное золото 585 пробы</option>
                             </select>
                             <x-validation-error error="metal"/>
                         </div>
