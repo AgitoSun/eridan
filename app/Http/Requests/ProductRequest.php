@@ -34,7 +34,7 @@ class ProductRequest extends FormRequest
             'insert_6' => 'max:255',
             'size' => 'max:10',
             'availability' => 'required',
-            'price' => 'required|numeric',
+            'price' => 'numeric',
             'category_id' => 'required',
             'main_image' => 'image:jpg,jpeg',
             'image' => 'image:jpg,jpeg',
