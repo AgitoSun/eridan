@@ -1,5 +1,5 @@
 @extends('layouts.guest.app')
-asd
+
 @section('content')
     <div class="d-none d-lg-block owl-carousel-wrapper position-relative" style="height: 670px">
         <div class="owl-carousel-loader">
