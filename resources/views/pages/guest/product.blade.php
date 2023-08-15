@@ -10,7 +10,7 @@
                     <div class="thumb-gallery-detail owl-carousel owl-theme manual nav-inside nav-style-1 nav-dark mb-3">
                         @foreach($product->images as $image)
                             <div>
-                                <img alt="" class="img-fluid rounded" src="{{ Storage::url($image->path) }}" data-zoom-image="{{ Storage::url($image->path) }}">
+                                <img alt="" class="img-fluid rounded" src="{{ Storage::url($image->path) }}">
                             </div>
                         @endforeach
                     </div>
