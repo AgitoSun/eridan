@@ -9,16 +9,35 @@
                 <div class="thumb-gallery-wrapper">
                     <div class="thumb-gallery-detail owl-carousel owl-theme manual nav-inside nav-style-1 nav-dark mb-3">
                         @foreach($product->images as $image)
-                            <div>
-                                <img alt="" class="img-fluid rounded" src="{{ Storage::url($image->path) }}">
-                            </div>
+                            @if(substr(strrchr($image->path, '.'), 1) == 'mp4')
+                                <div class="position-relative">
+                                    <div class="ratio ratio-1x1">
+                                        <video id="presentation2" class="float-start" width="100%" height="100%" muted="" loop="" preload="metadata">
+                                            <source src="{{ Storage::url($image->path) }}" type="video/mp4">
+                                        </video>
+                                        <a href="#" class="position-absolute top-50pct left-50pct transform3dxy-n50 bg-light rounded-circle d-flex align-items-center justify-content-center text-decoration-none bg-color-hover-primary text-color-hover-light play-button-lg pulseAnim pulseAnimAnimated" data-trigger-play-video="#presentation2" data-trigger-play-video-remove="yes">
+                                            <i class="fas fa-play text-5"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            @else
+                                <div>
+                                    <img alt="" class="img-fluid rounded" src="{{ Storage::url($image->path) }}">
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                     <div class="thumb-gallery-thumbs owl-carousel owl-theme manual thumb-gallery-thumbs">
                         @foreach($product->images as $image)
-                            <div class="cur-pointer">
-                                <img alt="" class="img-fluid rounded" src="{{ Storage::url($image->path) }}">
-                            </div>
+                            @if(substr(strrchr($image->path, '.'), 1) == 'mp4')
+                                <video id="presentation2" class="float-start" width="100%" height="100%" preload="metadata">
+                                    <source src="{{ Storage::url($image->path) }}" type="video/mp4">
+                                </video>
+                            @else
+                                <div class="cur-pointer">
+                                    <img alt="" class="img-fluid rounded" src="{{ Storage::url($image->path) }}">
+                                </div>
+                            @endif
                         @endforeach
                     </div>
                 </div>
@@ -112,9 +131,9 @@
             </div>
         </div>
     </div>
-@endsection
-@push('scripts')
-    <script src="{{ Vite::asset('resources/js/guest/examples.gallery.js') }}"></script>
-    <script src="/../vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
-    <script src="/../js/views/view.shop.js"></script>
-@endpush
+    @endsection
+    @push('scripts')
+        <script src="{{ Vite::asset('resources/js/guest/examples.gallery.js') }}"></script>
+        <script src="/../vendor/elevatezoom/jquery.elevatezoom.min.js"></script>
+        <script src="/../js/views/view.shop.js"></script>
+    @endpush

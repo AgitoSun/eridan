@@ -64,6 +64,15 @@ class ProductController extends Controller
             'product_id' => $product->id
         ]);
 
+        if ($request->file('video')) {
+            $video_path = $request->file('video')->store('public/img/products/' . $product->sku);
+            Image::create([
+                'path' => $video_path,
+                'main' => 0,
+                'product_id' => $product->id
+            ]);
+        }
+
         if ($request->file('image')) {
             foreach ($request->file('image') as $file) {
                 $path = $file->store('public/img/products/' . $product->sku);
@@ -134,10 +143,30 @@ class ProductController extends Controller
             ]);
         }
 
+        if ($request->video) {
+            foreach ($product->images->where('main', 0) as $image) {
+
+                if (substr(strrchr($image->path, '.'), 1) == 'mp4') {
+                    Storage::delete($image->path);
+                    $image->delete();
+                }
+            }
+
+            $video = $request->file('video')->store('public/img/products/' . $product->sku);
+
+            $image->create([
+                'path' => $video,
+                'main' => 0,
+                'product_id' => $product->id
+            ]);
+        }
+
         if ($request->image) {
             foreach ($product->images->where('main', 0) as $image) {
-                Storage::delete($image->path);
-                $image->delete();
+                if (substr(strrchr($image->path, '.'), 1) !== 'mp4') {
+                    Storage::delete($image->path);
+                    $image->delete();
+                }
             }
 
             foreach ($request->file('image') as $file) {

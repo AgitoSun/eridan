@@ -116,20 +116,27 @@
                 <div class="card mb-4">
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <div class="dz-message needsclick">
-                                    Основная фотография
-                                    <span class="note needsclick">(Загрузите одну фотографию, которая будет основной)</span>
+                                    <label class="form-label" for="video">Основная фотография</label>
                                 </div>
                                 <div class="fallback position-relative @error('main_image') mb-5 @enderror">
                                     <input name="main_image" type="file" class="@error('main_image') is-invalid @enderror"/>
                                     <x-validation-error error="main_image"/>
                                 </div>
                             </div>
-                            <div class="col-md-6 mb-3">
+                            <div class="col-md-4 mb-3">
                                 <div class="dz-message needsclick">
-                                    Дополнительные фотографии
-                                    <span class="note needsclick">(Загрузите несколько дополнительных фотографий)</span>
+                                    <label class="form-label" for="video">Видео</label>
+                                </div>
+                                <div class="fallback position-relative @error('video') mb-5 @enderror">
+                                    <input name="video" type="file" class="@error('video') is-invalid @enderror"/>
+                                    <x-validation-error error="video"/>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <div class="dz-message needsclick">
+                                    <label class="form-label" for="video">Дополнительные фотографии</label>
                                 </div>
                                 <div class="fallback position-relative">
                                     <input name="image[]" multiple type="file" class="@error('image') is-invalid @enderror"/>
