@@ -6,7 +6,9 @@ use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Image;
 use App\Models\Product;
+use App\Models\Video;
 use Illuminate\Support\Facades\Storage;
+use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
 
 class ProductController extends Controller
 {
@@ -57,6 +59,7 @@ class ProductController extends Controller
             'favorites' => $request->favorites == 'on' ? true : false
         ]);
 
+        //Main image
         $main_path = $request->file('main_image')->store('public/img/products/' . $product->sku);
         Image::create([
             'path' => $main_path,
@@ -64,15 +67,24 @@ class ProductController extends Controller
             'product_id' => $product->id
         ]);
 
+        //Video
         if ($request->file('video')) {
             $video_path = $request->file('video')->store('public/img/products/' . $product->sku);
-            Image::create([
+            $frame_path = 'public/img/products/'.$product->sku.'/'.pathinfo($video_path, PATHINFO_FILENAME).'.jpg';
+
+            FFMpeg::open($video_path)
+                ->getFrameFromSeconds(1)
+                ->export()
+                ->save($frame_path);
+
+            Video::create([
                 'path' => $video_path,
-                'main' => 0,
+                'frame' => $frame_path,
                 'product_id' => $product->id
             ]);
         }
 
+        //Images
         if ($request->file('image')) {
             foreach ($request->file('image') as $file) {
                 $path = $file->store('public/img/products/' . $product->sku);
@@ -131,6 +143,7 @@ class ProductController extends Controller
             'favorites' => $request->favorites == 'on' ? true : false
         ]);
 
+        //Main image
         if ($request->main_image) {
             foreach ($product->images->where('main', 1) as $image) {
                 Storage::delete($image->path);
@@ -143,24 +156,30 @@ class ProductController extends Controller
             ]);
         }
 
+        //Video
         if ($request->video) {
-            foreach ($product->images->where('main', 0) as $image) {
-
-                if (substr(strrchr($image->path, '.'), 1) == 'mp4') {
-                    Storage::delete($image->path);
-                    $image->delete();
-                }
+            if ($product->video) {
+                Storage::delete($product->video['path']);
+                Storage::delete($product->video['frame']);
+                $product->video->delete();
             }
 
-            $video = $request->file('video')->store('public/img/products/' . $product->sku);
+            $video_path = $request->file('video')->store('public/img/products/' . $product->sku);
+            $frame_path = 'public/img/products/'.$product->sku.'/'.pathinfo($video_path, PATHINFO_FILENAME).'.jpg';
 
-            $image->create([
-                'path' => $video,
-                'main' => 0,
+            FFMpeg::open($video_path)
+                ->getFrameFromSeconds(1)
+                ->export()
+                ->save($frame_path);
+
+            Video::create([
+                'path' => $video_path,
+                'frame' => $frame_path,
                 'product_id' => $product->id
             ]);
         }
 
+        //Images
         if ($request->image) {
             foreach ($product->images->where('main', 0) as $image) {
                 if (substr(strrchr($image->path, '.'), 1) !== 'mp4') {
@@ -179,7 +198,6 @@ class ProductController extends Controller
             }
         }
 
-
         return redirect()->route('products.index')->with('success', 'Товар ' . $product->title . ' успешно изменен');
     }
 
@@ -195,8 +213,8 @@ class ProductController extends Controller
         Storage::deleteDirectory('public/img/products/' . $product->sku);
 
         foreach ($product->images as $image) {
-
             $image->delete();
+            $product->video->delete();
         }
 
         $product->delete();
