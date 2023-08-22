@@ -38,7 +38,7 @@
                             @foreach($products as $product)
                                 <tr>
                                     <td>
-                                        <a class="link-dark" href="{{ route('products.show', $product->id) }}">
+                                        <a class="@if($product->video) link-success @endif" href="{{ route('products.show', $product->id) }}">
                                             {{ $product->title }}
                                         </a>
                                     </td>
