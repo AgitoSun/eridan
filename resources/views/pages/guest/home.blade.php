@@ -317,16 +317,22 @@
                             <div class="card-header" id="collapse100HeadingOne">
                                 <h4 class="card-title m-0">
                                     <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100One" aria-expanded="false" aria-controls="collapse100One">
-                                        1 - Сколько времени занимает изготовление украшения?
+                                        1 - Где приобрести готовое украшение?
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapse100One" class="collapse" aria-labelledby="collapse100HeadingOne" data-bs-parent="#accordion100" style="">
                                 <div class="card-body">
-                                    <p class="mb-0">Средний срок изготовления от 3х до 4х недель. Все зависит от сложности производства вашего
-                                        украшения. Все сроки мы прописываем с вами в договоре. Классические кольца или серьги
-                                        мы можем изготовить за 7-10 дней, а изготовление сложного украшения может занять месяц и
-                                        больше. В любом случае мы всегда идем вам навстречу.</p>
+                                    <p class="mb-1">
+                                        - в нашем офисе на производстве, где представлен наш полный ассортимент.
+                                        Адрес:  Московская область, г. Подольск, ул. Б. Серпуховская, д. 43 ( 15 мин от Москвы)
+                                    </p>
+                                    <p class="mb-1">
+                                        - на сайте <a href="https://eridanjewellery.com">eridanjewellery.com</a>, здесь представлен ассортимент наших тиражных изделий.
+                                    </p>
+                                    <p class="mb-1">
+                                        - на сайте <a href="http://grudakovjewelry.com">grudakovjevelry.com</a>, здесь представлены наши украшения премиум класса.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -334,14 +340,18 @@
                             <div class="card-header" id="collapse100HeadingTwo">
                                 <h4 class="card-title m-0">
                                     <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100Two" aria-expanded="false" aria-controls="collapse100Two">
-                                        2 - Можно из старых украшений изготовить новые?
+                                        2 - Где посмотреть наличие и цены?
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapse100Two" class="collapse" aria-labelledby="collapse100HeadingTwo" data-bs-parent="#accordion100">
                                 <div class="card-body">
-                                    <p class="mb-0">Конечно. Мы примем ваши старые украшения в зачет стоимости нового. В таком случае вы
-                                        оплачиваете только нашу работу и вставки.</p>
+                                    <p class="mb-1">
+                                        Наличие и цены тиражных украшений вы можете посмотреть на сайте <a href="https://eridanjewellery.com">eridanjewellery.com</a>
+                                    </p>
+                                    <p class="mb-1">
+                                        Наличие и цены на украшения премиум класса на сайте <a href="http://grudakovjewelry.com">grudakovjevelry.com</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -349,13 +359,15 @@
                             <div class="card-header" id="collapse100HeadingThree">
                                 <h4 class="card-title m-0">
                                     <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100Three" aria-expanded="false" aria-controls="collapse100Three">
-                                        3 - Можно сделать украшение, если это не ваша модель?
+                                        3 - Сколько времени занимает изготовление украшения?
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapse100Three" class="collapse" aria-labelledby="collapse100HeadingThree" data-bs-parent="#accordion100">
                                 <div class="card-body">
-                                    <p class="mb-0">Наш 3D модельер поможет в этом. Вам нужно просто отправить нам фото.</p>
+                                    <p class="mb-0">
+                                        Срок изготовления от 2-х до 4-х недель с момента утверждения вами 3D модели украшения. Все зависит от сложности изделия и загруженности нашего производства.
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -363,13 +375,81 @@
                             <div class="card-header" id="collapse100HeadingFour">
                                 <h4 class="card-title m-0">
                                     <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100Four" aria-expanded="false" aria-controls="collapse100Four">
-                                        4 - Есть идея, но нет эскиза или фото. Сможете сделать?
+                                        4 - Как производится оплата?
                                     </a>
                                 </h4>
                             </div>
                             <div id="collapse100Four" class="collapse" aria-labelledby="collapse100HeadingFour" data-bs-parent="#accordion100">
                                 <div class="card-body">
-                                    <p class="mb-0">Конечно! Расскажите нам свою идею и мы воплотим ее в жизнь!</p>
+                                    <p class="mb-1">
+                                        Оплата производится на расчетный счет предприятия, после заключения договора.
+                                    </p>
+                                    <p class="mb-1">
+                                        Украшения из наличия мы высылаем по 100 % предоплате.
+                                    </p>
+                                    <p class="mb-1">
+                                        Украшения под заказ -предоплата 30%, остальное по факту изготовления.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-default">
+                            <div class="card-header" id="collapse100HeadingFive">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100Five" aria-expanded="false" aria-controls="collapse100Five">
+                                        5 - Что такое гарантия и сервисное обслуживание?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse100Five" class="collapse" aria-labelledby="collapse100HeadingFive" data-bs-parent="#accordion100">
+                                <div class="card-body">
+                                    <p class="mb-1">
+                                        Гарантия на все наши украшения – 10 лет.
+                                    </p>
+                                    <p class="mb-1">
+                                        Сервисное обслуживание в течении всего срока эксплуатации-бесплатно.
+                                    </p>
+                                    <p class="mb-1">
+                                        Сервисное обслуживание включает в себя: корректировку размера, профилактику закрепки камней, чистку и полировку, обновление покрытия.
+                                    </p>
+                                    <p class="mb-1">
+                                        Следы механического воздействия, деформация изделия, потеря и сколы камней, возникшие по причине небрежного отношения, хранения или транспортировки украшения- не являются гарантийным случаем!
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-default">
+                            <div class="card-header" id="collapse100HeadingSix">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100Six" aria-expanded="false" aria-controls="collapse100Six">
+                                        6 - Как происходит доставка по России и странам СНГ?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse100Six" class="collapse" aria-labelledby="collapse100HeadingSix" data-bs-parent="#accordion100">
+                                <div class="card-body">
+                                    <p class="mb-1">
+                                        Доставка по России и странам СНГ производится бесплатно, компанией СПЕЦСВЯЗЬ или СДЭК. В пункт выдачи или адрес, указанный вами.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card card-default">
+                            <div class="card-header" id="collapse100HeadingSeven">
+                                <h4 class="card-title m-0">
+                                    <a class="accordion-toggle text-color-dark font-weight-bold collapsed" data-bs-toggle="collapse" data-bs-target="#collapse100Seven" aria-expanded="false" aria-controls="collapse100Seven">
+                                        7 - Как происходит доставка по миру?
+                                    </a>
+                                </h4>
+                            </div>
+                            <div id="collapse100Seven" class="collapse" aria-labelledby="collapse100HeadingSeven" data-bs-parent="#accordion100">
+                                <div class="card-body">
+                                    <p class="mb-1">
+                                        Доставка по всему миру осуществляется компаниями FERRARI и FEDEX.
+                                    </p>
+                                    <p class="mb-1">
+                                        Оплата доставки производится за ваш счет.
+                                    </p>
                                 </div>
                             </div>
                         </div>

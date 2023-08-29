@@ -14,19 +14,22 @@
                     <p class="font-weight-bold text-primary text-uppercase mb-0 appear-animation" data-appear-animation="maskUp" data-appear-animation-delay="500">Создатель и руководитель</p>
                 </div>
                 <p class="lead appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="700">
-                    Ювелир с 30 летним стажем. Создатель и руководитель ювелирной студии и ограночного производства.
+                    Основатель и руководитель ювелирной компании <a href="https://instagram.com/eridan__jc?igshid=MzRlODBiNWFlZA==">«ERIDAN»</a> и собственного ограночного производства.
                 </p>
-                <p class="pb-3 appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800">
-                    На нашем производстве мы граним драгоценные и полудрагоценные камни со всего мира. Выполняем огранку любых форм и размеров под заказ.
+                <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="800">
+                    Опыт работы на производстве и оценке драгоценных камней – 30 лет.
                 </p>
                 <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="900">
-                    В нашей ювелирной студии мы изготавливаем украшения по вашим приоритетам, а также имеем достаточно большой ассортимент готовых украшений с драгоценными и полудрагоценными камнями.
+                    Украшения премиум класса и огранка камней с месторождений всего мира.
                 </p>
                 <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1000">
-                    Нашим клиентам мы предоставляем бесплатный сервис на наши украшения на весь срок эксплуатации. Это чистка, профилактика закрепки камней, обновление покрытия, корректировка размера, профилактика замков и т.д.
+                    Большой ассортимент ювелирных украшений В НАЛИЧИИ.
                 </p>
                 <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1100">
-                    На все наши украшения мы предоставляем пожизненную гарантию!
+                    Изготовление под заказ из собственных материалов или материалов клиента.
+                </p>
+                <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1100">
+                    Подбор камней под ваш бюджет, сертификация в России и ведущих геммологических лабораториях мира.
                 </p>
             </div>
             <div class="col-md-6 order-md-2 mb-4 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter">
