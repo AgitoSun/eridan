@@ -73,7 +73,7 @@
     <section class="section section-default section-no-border my-0">
         <div class="container pt-3 pb-4">
             <div class="row">
-                <div class="col-lg-8 mb-4 mb-lg-0">
+                <div class="col-lg-12 mb-4 mb-lg-0">
                     <h2 class="mb-0 font-weight-bold appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="100">
                         О компании
                     </h2>
@@ -82,17 +82,24 @@
                     </div>
                     <div class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="300">
                         <p class="font-weight-medium text-4">
-                            Ювелир с
-                            <span class="highlight highlight-primary highlight-bg-opacity highlight-animated px-0" data-appear-animation="highlight-animated-start" data-appear-animation-delay="200" data-plugin-options="{'flagClassOnly': true}">
-                                30 летним
-                            </span>
-                            стажем. Создатель и руководитель ювелирной студии и ограночного производства.
+                            Основатель и руководитель ювелирной компании <a href="https://instagram.com/eridan__jc?igshid=MzRlODBiNWFlZA==">«ERIDAN»</a> и собственного ограночного производства.
                         </p>
                         <p class="text-3-5 line-height-9">
-                            На нашем производстве мы граним драгоценные и полудрагоценные камни со всего мира. Выполняем огранку любых форм и размеров под заказ.
+                            Опыт работы на производстве и оценке драгоценных камней – <span class="highlight highlight-primary highlight-bg-opacity highlight-animated px-0" data-appear-animation="highlight-animated-start" data-appear-animation-delay="200" data-plugin-options="{'flagClassOnly': true}">
+                                30 лет
+                            </span>.
                         </p>
                         <p class="text-3-5 line-height-9">
-                            На все наши украшения мы предоставляем пожизненную гарантию!
+                            Украшения премиум класса и огранка камней с месторождений всего мира.
+                        </p>
+                        <p class="text-3-5 line-height-9">
+                            Большой ассортимент ювелирных украшений В НАЛИЧИИ.
+                        </p>
+                        <p class="text-3-5 line-height-9">
+                            Изготовление под заказ из собственных материалов или материалов клиента.
+                        </p>
+                        <p class="text-3-5 line-height-9">
+                            Подбор камней под ваш бюджет, сертификация в России и ведущих геммологических лабораториях мира.
                         </p>
 
                         <a class="mt-3 font-weight-semi-bold" href="{{ route('about-company') }}">
@@ -101,16 +108,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="appear-animation" data-appear-animation="fadeIn" data-appear-animation-delay="500">
-                        <p class="mt-4 mb-0">
-                            В нашей ювелирной студии мы изготавливаем украшения по вашим приоритетам, а также имеем достаточно большой ассортимент готовых украшений с драгоценными и полудрагоценными камнями.
-                        </p>
-                        <p class="mt-4 mb-0">
-                            Нашим клиентам мы предоставляем бесплатный сервис на наши украшения на весь срок эксплуатации. Это чистка, профилактика закрепки камней, обновление покрытия, корректировка размера, профилактика замков и т.д.
-                        </p>
-                    </div>
-                </div>
+
             </div>
         </div>
     </section>
@@ -173,16 +171,25 @@
                         <div class="col-half-section col-half-section-right text-color-light py-5 ms-auto">
                             <div class="p-3">
                                 <div class="appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="200">
-                                    <h2 class="mb-0 font-weight-bold text-dark">Как купить понравившееся украшение или камень</h2>
+                                    <h2 class="mb-0 font-weight-bold text-dark">Где и как купить готовое украшение</h2>
                                     <div class="divider divider-dark divider-small mt-2 mb-4">
                                         <hr class="my-0 me-auto">
                                     </div>
                                     <p class="text-color-light lead pe-5 mb-4 pb-2">
-                                        Вы присылаете нам скрин или артикул в директ или вотсап. Мы связываемся с вами для
-                                        обсуждения доставки и способа оплаты. После получения оплаты, мы отправляем вам
-                                        украшение компанией СДЭК за свой счет, либо вы самостоятельно можете приехать к нам и
-                                        забрать его в нашем офисе.
+                                        - В нашем офисе на производстве, где представлен наш полный ассортимент.
+                                        Адрес:  Московская область, г. Подольск, ул. Б. Серпуховская, д. 43 ( 15 мин от Москвы)
                                     </p>
+                                    <p class="text-color-light lead pe-5 mb-4 pb-2">
+                                        - на сайте <a class="link-dark" href="https://eridanjewellery.com">eridanjewellery.com</a>, здесь представлен ассортимент наших тиражных изделий.
+                                        Оформить и оплатить заказ вы сможете там же.
+                                    </p>
+                                    <p class="text-color-light lead pe-5 mb-4 pb-2">
+                                        - на сайте <a class="link-dark" href="http://grudakovjewelry.com">grudakovjevelry.com</a>, здесь представлены наши украшения премиум класса.
+                                    </p>
+                                    <a class="mt-3 link-dark font-weight-semi-bold" href="{{ route('how-we-working') }}">
+                                        Подробнее
+                                        <img width="27" height="27" src="{{ Vite::asset('resources/img/guest/icons/arrow-right.svg') }}" alt="" data-icon data-plugin-options="{'onlySVG': true, 'extraClass': 'svg-fill-color-dark d-inline-block ms-2 p-relative bottom-1'}" />
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -219,73 +226,6 @@
             </div>
         </div>
     </div>
-
-    <section class="section bg-transparent section-no-border my-0">
-        <div class="container pt-3 pb-4">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div class="appear-animation" data-appear-animation="blurIn" data-appear-animation-delay="0">
-                        <h2 class="mb-0 font-weight-bold">Как сделать заказ</h2>
-                        <div class="divider divider-primary divider-small mt-2 mb-4 text-center">
-                            <hr class="my-0 mx-auto">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-5 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="450">
-                    <div class="feature-box">
-                        <div class="feature-box-icon custom-feature-box-icon-size-1 bg-color-secondary top-0">
-                            <i class="fas fa-puzzle-piece position-relative left-1"></i>
-                        </div>
-                        <div class="feature-box-info mb-4 pb-3">
-                            <h4 class="font-weight-bold line-height-3 custom-font-size-1 mb-1">Выбор дизайна</h4>
-                            <p class="mb-0">Пришлите нам фото понравившегося украшения в директ или вотсап и мы расчитаем его
-                                ориентировочную стоимость. Или просто расскажите свою идею, мы вместе продумаем
-                                дизайн</p>
-                        </div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box-icon custom-feature-box-icon-size-1 bg-color-tertiary top-0">
-                            <i class="fas fa-map-signs position-relative top-2 right-1"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="font-weight-bold line-height-3 custom-font-size-1 mb-1">Оформление заказа</h4>
-                            <p class="mb-0">После утверждения всех параметров будущего украшения, мы создаем 3d модель и
-                                отправляем ее вам. На этом этапе вы видите, как будет выглядеть ваше украшение. Здесь мы
-                                можем внести коррективы, чтобы выбрать наилучший вариант.
-                                После утверждения 3D модели мы оформляем договор. Предоплата за изготовление
-                                составляет 30%, остальное вы оплачиваете после изготовления украшения.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 mb-5 mb-lg-0 appear-animation" data-appear-animation="fadeInRightShorter" data-appear-animation-delay="450">
-                    <div class="feature-box">
-                        <div class="feature-box-icon custom-feature-box-icon-size-1 bg-color-secondary top-0">
-                            <i class="fa-solid fa-wand-magic-sparkles position-relative left-1"></i>
-                        </div>
-                        <div class="feature-box-info mb-4 pb-3">
-                            <h4 class="font-weight-bold line-height-3 custom-font-size-1 mb-1">Изготовление</h4>
-                            <p class="mb-0">После подписания договора и внесения предоплаты, мы приступаем к изготовлению. Все
-                                украшения перед закрепкой камней мы отправляем в Государственную Пробирную
-                                Инспекцию, где их проверяют и ставят пробу. Получив украшение обратно, мы крепим камни,
-                                полируем, покрываем родием.</p>
-                        </div>
-                    </div>
-                    <div class="feature-box">
-                        <div class="feature-box-icon custom-feature-box-icon-size-1 bg-color-tertiary top-0">
-                            <i class="fa-solid fa-check position-relative top-2 right-1"></i>
-                        </div>
-                        <div class="feature-box-info">
-                            <h4 class="font-weight-bold line-height-3 custom-font-size-1 mb-1">Украшение готово</h4>
-                            <p class="mb-0">Вы забираете и оплачиваете свой заказ в удобное для вас время в нашем офисе. Если вы
-                                находитесь в другом городе, мы отправим его вам компанией СДЭК за свой счет. Свое
-                                украшение вы получаете в фирменной подарочной упаковке.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section bg-transparent section-no-border my-0">
         <div class="container pt-3 pb-4">
             <div class="row">

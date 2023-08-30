@@ -28,7 +28,7 @@
                 <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1100">
                     Изготовление под заказ из собственных материалов или материалов клиента.
                 </p>
-                <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1100">
+                <p class="appear-animation" data-appear-animation="fadeInUpShorter" data-appear-animation-delay="1200">
                     Подбор камней под ваш бюджет, сертификация в России и ведущих геммологических лабораториях мира.
                 </p>
             </div>
