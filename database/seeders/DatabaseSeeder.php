@@ -28,12 +28,12 @@ class DatabaseSeeder extends Seeder
             'updated_at' => now(),
         ]);
 
-//        \App\Models\User::factory()->create([
-//            'name' => 'Irina',
-//            'email' => 'irina@rusdhouse.ru',
-//            'password' => Hash::make('Shirina1805)'),
-//            'created_at' => now(),
-//            'updated_at' => now(),
-//        ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Irina',
+            'email' => 'irina@rusdhouse.ru',
+            'password' => Hash::make('Shirina1805)'),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
     }
 }
