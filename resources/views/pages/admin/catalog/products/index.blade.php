@@ -42,49 +42,51 @@
                             </thead>
                             <tbody class="table-border-bottom-0">
                             @foreach($products as $key => $product)
-                                <tr>
-                                    <td>
-                                        <div class="d-flex">
-                                            <div class="@if($product->images->isNotEmpty()) link-success @endif">
-                                                <i class="bx bx-image"></i>
+                                @if($product->images->isEmpty())
+                                    <tr>
+                                        <td>
+                                            <div class="d-flex">
+                                                <div class="@if($product->images->isNotEmpty()) link-success @endif">
+                                                    <i class="bx bx-image"></i>
+                                                </div>
+                                                <div class="@if($product->video) link-success @endif">
+                                                    <i class="bx bx-video"></i>
+                                                </div>
                                             </div>
-                                            <div class="@if($product->video) link-success @endif">
-                                                <i class="bx bx-video"></i>
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('products.edit', $product->id) }}">
+                                                {{ $product->title }}
+                                            </a>
+                                        </td>
+                                        <td>{{ $product->sku }}</td>
+                                        <td>
+                                            <span class="badge @if($product->availability == 'В наличии') bg-label-success @else bg-label-danger @endif">{{ $product->availability }}</span>
+                                        </td>
+                                        {{--                                    <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>--}}
+                                        <td>{{ $product->price }}</td>
+                                        <td>{{ $product->category['title'] }}</td>
+                                        <td class="text-end">
+                                            <div class="dropstart">
+                                                <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
+                                                    <i class="bx bx-dots-vertical-rounded"></i>
+                                                </button>
+                                                <div class="dropdown-menu">
+                                                    <a class="dropdown-item" href="{{ route('products.edit', $product->id) }}">
+                                                        <i class="bx bx-edit-alt me-1"></i> Изменить
+                                                    </a>
+                                                    <form action="{{ route('products.destroy', $product->id) }}" method="post">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button type="submit" class="dropdown-item" onclick="return confirm('Вы уверены?')">
+                                                            <i class="bx bx-trash me-1"></i> Удалить
+                                                        </button>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <a href="{{ route('products.edit', $product->id) }}">
-                                            {{ $product->title }}
-                                        </a>
-                                    </td>
-                                    <td>{{ $product->sku }}</td>
-                                    <td>
-                                        <span class="badge @if($product->availability == 'В наличии') bg-label-success @else bg-label-danger @endif">{{ $product->availability }}</span>
-                                    </td>
-{{--                                    <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>--}}
-                                    <td>{{ $product->price }}</td>
-                                    <td>{{ $product->category['title'] }}</td>
-                                    <td class="text-end">
-                                        <div class="dropstart">
-                                            <button type="button" class="btn p-0 dropdown-toggle hide-arrow" data-bs-toggle="dropdown">
-                                                <i class="bx bx-dots-vertical-rounded"></i>
-                                            </button>
-                                            <div class="dropdown-menu">
-                                                <a class="dropdown-item" href="{{ route('products.edit', $product->id) }}">
-                                                    <i class="bx bx-edit-alt me-1"></i> Изменить
-                                                </a>
-                                                <form action="{{ route('products.destroy', $product->id) }}" method="post">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class="dropdown-item" onclick="return confirm('Вы уверены?')">
-                                                        <i class="bx bx-trash me-1"></i> Удалить
-                                                    </button>
-                                                </form>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
+                                        </td>
+                                    </tr>
+                                @endif
                             @endforeach
                             </tbody>
                         </table>
