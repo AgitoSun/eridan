@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Models\Category;
 use App\Models\Image;
+use App\Models\Insert;
 use App\Models\Product;
 use App\Models\Video;
 use Illuminate\Support\Facades\Storage;
@@ -17,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::orderByDesc('created_at')->paginate(15);
 
         return \response()->view('pages.admin.catalog.products.index', compact([
             'products',
@@ -46,12 +47,6 @@ class ProductController extends Controller
             'sku' => $request->sku,
             'metal' => $request->metal,
             'weight' => $request->weight,
-            'insert_1' => $request->insert_1,
-            'insert_2' => $request->insert_2,
-            'insert_3' => $request->insert_3,
-            'insert_4' => $request->insert_4,
-            'insert_5' => $request->insert_5,
-            'insert_6' => $request->insert_6,
             'size' => $request->size,
             'availability' => $request->availability,
             'price' => $request->price,
@@ -59,13 +54,22 @@ class ProductController extends Controller
             'favorites' => $request->favorites == 'on' ? true : false
         ]);
 
+        foreach ($request->inserts as $insert) {
+            Insert::create([
+                'name' => $insert['name'],
+                'product_id' => $product->id
+            ]);
+        }
+
         //Main image
-        $main_path = $request->file('main_image')->store('public/img/products/' . $product->sku);
-        Image::create([
-            'path' => $main_path,
-            'main' => 1,
-            'product_id' => $product->id
-        ]);
+        if ($request->main_image) {
+            $main_path = $request->file('main_image')->store('public/img/products/' . $product->sku);
+            Image::create([
+                'path' => $main_path,
+                'main' => 1,
+                'product_id' => $product->id
+            ]);
+        }
 
         //Video
         if ($request->file('video')) {
@@ -113,10 +117,12 @@ class ProductController extends Controller
     public function edit(Product $product)
     {
         $categories = Category::all();
+        $images = $product->images->where('main', 1);
 
         return \response()->view('pages.admin.catalog.products.edit', compact([
             'product',
             'categories',
+            'images',
         ]));
     }
 
@@ -130,12 +136,6 @@ class ProductController extends Controller
             'sku' => $request->sku,
             'metal' => $request->metal,
             'weight' => $request->weight,
-            'insert_1' => $request->insert_1,
-            'insert_2' => $request->insert_2,
-            'insert_3' => $request->insert_3,
-            'insert_4' => $request->insert_4,
-            'insert_5' => $request->insert_5,
-            'insert_6' => $request->insert_6,
             'size' => $request->size,
             'availability' => $request->availability,
             'price' => $request->price,
@@ -143,16 +143,52 @@ class ProductController extends Controller
             'favorites' => $request->favorites == 'on' ? true : false
         ]);
 
+        $inserts_id = [];
+        $inserts_key_id = [];
+
+        //Добавляем id всех товаров из заявки
+        foreach ($product->inserts as $insert) {
+            $inserts_id[] = $insert->id;
+        }
+
+        if ($request->inserts) {
+            foreach ($request->inserts as $key => $insert) {
+                $inserts_key_id[] = $key;
+                Insert::find($key)->update([
+                    'name' => $insert['name']
+                ]);
+            }
+        }
+
+        //Удаляем все товары которые были удалены в форме
+        foreach (array_diff($inserts_id, $inserts_key_id) as $id) {
+            Insert::find($id)->delete();
+        }
+
+        if ($request->inserts_new) {
+            foreach ($request->inserts_new as $insert_new) {
+                Insert::create([
+                    'name' => $insert_new['name'],
+                    'product_id' => $product->id
+                ]);
+            }
+        }
+
         //Main image
         if ($request->main_image) {
-            foreach ($product->images->where('main', 1) as $image) {
-                Storage::delete($image->path);
+            if ($product->images->where('main', 1)->isNotEmpty()) {
+                foreach ($product->images->where('main', 1) as $image) {
+                    Storage::delete($image->path);
+                    $image->delete();
+                }
             }
 
             $main_path = $request->file('main_image')->store('public/img/products/' . $product->sku);
 
-            $image->update([
+            $image->create([
                 'path' => $main_path,
+                'main' => 1,
+                'product_id' => $product->id
             ]);
         }
 
@@ -220,5 +256,18 @@ class ProductController extends Controller
         $product->delete();
 
         return redirect()->route('products.index')->with('error', 'Товар ' . $product->title . ' успешно удален');
+    }
+
+    public function downloadImage(Product $product)
+    {
+        foreach ($product->images as $image) {
+            return Storage::download($image->path, $product->sku.'.jpg');
+        }
+    }
+
+    public function downloadVideo(Product $product)
+    {
+
+        return Storage::download($product->video->path, $product->sku.'.mp4');
     }
 }

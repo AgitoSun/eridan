@@ -9,9 +9,14 @@
                 <div class="card-header">
                     <div class="row mx-2">
                         <div class="text-end d-flex justify-content-end">
-                            <x-button-add>
-                                {{ route('products.create') }}
-                            </x-button-add>
+                            <div class="dt-buttons btn-group flex-wrap d-flex mb-6 mb-sm-0">
+                                <a class="btn btn-secondary" href="{{ route('file-export') }}">
+                                    <span><i class="bx bx-export me-2 bx-xs"></i>Экспорт</span>
+                                </a>
+                                <x-button-add>
+                                    {{ route('products.create') }}
+                                </x-button-add>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -26,6 +31,7 @@
                         <table class="table table-hover">
                             <thead>
                             <tr>
+                                <th>Медиа</th>
                                 <th>Название</th>
                                 <th>Артикул</th>
                                 <th>Наличие</th>
@@ -35,16 +41,28 @@
                             </tr>
                             </thead>
                             <tbody class="table-border-bottom-0">
-                            @foreach($products as $product)
+                            @foreach($products as $key => $product)
                                 <tr>
                                     <td>
-                                        <a class="@if($product->video) link-success @endif" href="{{ route('products.edit', $product->id) }}">
+                                        <div class="d-flex">
+                                            <div class="@if($product->images->isNotEmpty()) link-success @endif">
+                                                <i class="bx bx-image"></i>
+                                            </div>
+                                            <div class="@if($product->video) link-success @endif">
+                                                <i class="bx bx-video"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <a href="{{ route('products.edit', $product->id) }}">
                                             {{ $product->title }}
                                         </a>
                                     </td>
                                     <td>{{ $product->sku }}</td>
-                                    <td>{{ $product->availability }}</td>
-                                    <td>{{ $product->price }}</td>
+                                    <td>
+                                        <span class="badge @if($product->availability == 'В наличии') bg-label-success @else bg-label-danger @endif">{{ $product->availability }}</span>
+                                    </td>
+                                    <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>
                                     <td>{{ $product->category['title'] }}</td>
                                     <td class="text-end">
                                         <div class="dropstart">
@@ -69,6 +87,11 @@
                             @endforeach
                             </tbody>
                         </table>
+                    </div>
+                    <div class="row mx-2 mt-3">
+                        <div class="text-end d-flex justify-content-end">
+                            {{ $products->links('vendor.pagination.admin') }}
+                        </div>
                     </div>
                 @endif
             </div>

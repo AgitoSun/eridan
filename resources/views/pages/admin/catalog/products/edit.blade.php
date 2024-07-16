@@ -76,31 +76,29 @@
             </div>
             <div class="col-md-6">
                 <div class="card mb-4">
+                    <h5 class="card-header">Вставки</h5>
                     <div class="card-body">
-                        <div class="position-relative mb-3 @error('insert_1') mb-5 @enderror">
-                            <label class="form-label" for="insert_1">Вставка 1</label>
-                            <input type="text" class="form-control @error('insert_1') is-invalid @enderror" id="insert_1" name="insert_1" value="{{ $product->insert_1 }}"/>
-                            <x-validation-error error="insert_1"/>
+                        <div id="dynamicTable">
+                            @foreach($product->inserts as $insert)
+                                <div class="row repeater-wrapper">
+                                    <div class="mb-3 col-lg-6 col-xl-10 col-12 mb-0">
+                                        <label class="form-label" for="inserts[{{ $insert->id }}][name]">Вставка</label>
+                                        <input name="inserts[{{ $insert->id }}][name]" type="text" id="inserts[{{ $insert->id }}][name]" class="form-control" value="{{ $insert->name }}">
+                                    </div>
+                                    <div class="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                        <button type="button" class="remove-tr btn btn-label-danger mt-4">
+                                            <i class="bx bx-x me-1"></i>
+                                        </button>
+                                    </div>
+                                    <hr>
+                                </div>
+                            @endforeach
                         </div>
-                        <div class="position-relative mb-3">
-                            <label class="form-label" for="insert_2">Вставка 2</label>
-                            <input type="text" class="form-control" id="insert_2" name="insert_2" value="{{ $product->insert_2 }}"/>
-                        </div>
-                        <div class="position-relative mb-3">
-                            <label class="form-label" for="insert_3">Вставка 3</label>
-                            <input type="text" class="form-control" id="insert_3" name="insert_3" value="{{ $product->insert_3 }}"/>
-                        </div>
-                        <div class="position-relative mb-3">
-                            <label class="form-label" for="insert_4">Вставка 4</label>
-                            <input type="text" class="form-control" id="insert_4" name="insert_4" value="{{ $product->insert_4 }}"/>
-                        </div>
-                        <div class="position-relative mb-3">
-                            <label class="form-label" for="insert_5">Вставка 5</label>
-                            <input type="text" class="form-control" id="insert_5" name="insert_5" value="{{ $product->insert_5 }}"/>
-                        </div>
-                        <div class="position-relative mb-3">
-                            <label class="form-label" for="insert_6">Вставка 6</label>
-                            <input type="text" class="form-control" id="insert_6" name="insert_6" value="{{ $product->insert_6 }}"/>
+                        <div class="mb-0">
+                            <button id="add" type="button" class="btn btn-primary">
+                                <i class="bx bx-plus me-1"></i>
+                                <span class="align-middle">Добавить</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -118,6 +116,11 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-4 mb-3">
+                                @if($images->isNotEmpty())
+                                    @foreach($images as $image)
+                                        <img width="200px" class="img-fluid rounded-3 mb-3" src="{{ Storage::url($image->path) }}" alt="{{ $product->title }}">
+                                    @endforeach
+                                @endif
                                 <div class="dz-message needsclick">
                                     <label class="form-label" for="video">Основная фотография</label>
                                 </div>
@@ -127,6 +130,9 @@
                                 </div>
                             </div>
                             <div class="col-md-4 mb-3">
+                                @if(!empty($product->video))
+                                    <img width="200px" class="img-fluid rounded-3 mb-3" src="{{ Storage::url($product->video->frame) }}" alt="{{ $product->title }}">
+                                @endif
                                 <div class="dz-message needsclick">
                                     <label class="form-label" for="video">Видео</label>
                                 </div>
@@ -145,7 +151,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary">Сохранить</button>
+                        <button type="submit" class="btn btn-primary mt-3">Сохранить</button>
                     </div>
                 </div>
             </div>
@@ -155,4 +161,35 @@
 
 @push('scripts')
     <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var i = 0;
+        var add = document.getElementById('add');
+
+        add.addEventListener('click', function() {
+
+            ++i;
+
+            $("#dynamicTable").append(
+                '<div class="row repeater-wrapper">' +
+                '<div class="mb-3 col-lg-6 col-xl-10 col-12 mb-0">' +
+                '<label class="form-label" for="inserts_new['+i+'][name]">Вставка</label>' +
+                '<input name="inserts_new['+i+'][name]" type="text" id="inserts_new['+i+'][name]" class="form-control">' +
+                '</div>' +
+                '<div class="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">' +
+                '<button type="button" class="remove-tr btn btn-label-danger mt-4">' +
+                '<i class="bx bx-x me-1"></i>' +
+                '</button>' +
+                '</div>' +
+                '<hr>' +
+                '</div>'
+            );
+        });
+
+        $(document).on('click', '.remove-tr', function(){
+            $(this).parents('.repeater-wrapper').remove();
+        });
+
+    </script>
 @endpush

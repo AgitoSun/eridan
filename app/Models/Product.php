@@ -28,6 +28,7 @@ class Product extends Model
         'price',
         'category_id',
         'favorites',
+        'created_at',
     ];
 
     public function category(): BelongsTo
@@ -43,5 +44,10 @@ class Product extends Model
     public function video(): HasOne
     {
         return $this->hasOne(Video::class);
+    }
+
+    public function inserts(): HasMany
+    {
+        return $this->hasMany(Insert::class);
     }
 }

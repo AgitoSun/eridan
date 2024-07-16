@@ -54,7 +54,7 @@
                                 </div>
                                 @if($product->price)
                                     <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">{{ $product->price }} &#8381;</span>
+                                        <span class="text-color-dark font-weight-semi-bold">{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</span>
                                     </p>
                                 @else
                                     <p class="price text-5 mb-3">
@@ -66,17 +66,15 @@
                         @endforeach
 
                     </div>
-{{--                    <div class="row mt-4">--}}
-{{--                        <div class="col">--}}
-{{--                            <ul class="pagination float-end">--}}
-{{--                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-left"></i></a></li>--}}
-{{--                                <li class="page-item active"><a class="page-link" href="#">1</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#">2</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#">3</a></li>--}}
-{{--                                <li class="page-item"><a class="page-link" href="#"><i class="fas fa-angle-right"></i></a></li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
+                    <div class="row mt-4">
+
+                        <div class="col">
+
+                            <ul class="pagination float-end">
+                                {{ $products->links('vendor.pagination.guest') }}
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

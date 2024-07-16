@@ -1,7 +1,7 @@
 <ul class="menu-inner py-1">
     <!-- Dashboard -->
     <li class="menu-item {{ active_link('dashboard*') }}">
-        <a href="{{ route('dashboard') }}" class="menu-link">
+        <a href="{{ route('dashboard.index') }}" class="menu-link">
             <i class="menu-icon tf-icons bx bx-home-circle"></i>
             <div>Главная</div>
         </a>
@@ -40,8 +40,8 @@
                 <div>Права доступа</div>
             </a>
         </li>
-        <li class="menu-item {{-- active_link('dashboard*') --}}">
-            <a href="{{-- route('dashboard') --}}" class="menu-link">
+        <li class="menu-item {{ active_link('settings*') }}">
+            <a href="{{ route('settings') }}" class="menu-link">
                 <i class='menu-icon tf-icons bx bx-cog'></i>
                 <div>Настройки</div>
             </a>

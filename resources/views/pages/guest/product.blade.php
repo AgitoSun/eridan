@@ -53,7 +53,7 @@
 
                     @if($product->price)
                         <p class="price mb-3">
-                            <span class="sale text-color-dark">{{ $product->price }} &#8381;</span>
+                            <span class="sale text-color-dark">{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</span>
                         </p>
                     @else
                         <p class="price mb-3">
@@ -92,12 +92,9 @@
                                             Вставка:
                                         </th>
                                         <td>
-                                            {{ $product->insert_1 }}<br>
-                                            @if($product->insert_2){{ $product->insert_2 }}<br>@endif
-                                            @if($product->insert_3){{ $product->insert_3 }}<br>@endif
-                                            @if($product->insert_4){{ $product->insert_4 }}<br>@endif
-                                            @if($product->insert_5){{ $product->insert_5 }}<br>@endif
-                                            @if($product->insert_6){{ $product->insert_6 }}@endif
+                                            @foreach($inserts as $insert)
+                                                <div>{{ $insert->name }}</div>
+                                            @endforeach
                                         </td>
                                     </tr>
                                     <tr>

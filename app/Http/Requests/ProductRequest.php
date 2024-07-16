@@ -27,12 +27,6 @@ class ProductRequest extends FormRequest
             'sku' => 'required|max:10',
             'metal' => 'required',
             'weight' => 'required|max:10',
-            'insert_1' => 'required',
-            'insert_2' => 'max:255',
-            'insert_3' => 'max:255',
-            'insert_4' => 'max:255',
-            'insert_5' => 'max:255',
-            'insert_6' => 'max:255',
             'size' => 'max:10',
             'availability' => 'required',
             'price' => 'numeric|nullable',
@@ -40,6 +34,7 @@ class ProductRequest extends FormRequest
             'main_image' => 'image:jpg,jpeg',
             'image.*' => 'image:jpg,jpeg',
             'video' => 'mimes:mp4',
+            'inserts' => 'max:255'
         ];
     }
 }

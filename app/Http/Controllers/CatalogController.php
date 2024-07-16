@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Insert;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -12,7 +13,7 @@ class CatalogController extends Controller
     public function index(): Response
     {
         $categories = Category::all();
-        $products = Product::all();
+        $products = Product::orderByDesc('created_at')->paginate(12);
 
         return \response()->view('pages.guest.catalog', compact([
             'categories',
@@ -33,8 +34,11 @@ class CatalogController extends Controller
 
     public function show(Product $product): Response
     {
+        $inserts = Insert::all()->where('product_id', $product->id);
+
         return \response()->view('pages.guest.product', compact([
             'product',
+            'inserts'
         ]));
     }
 }

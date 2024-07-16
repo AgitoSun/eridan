@@ -51,10 +51,17 @@ Route::get('/login', function () {
 })->middleware('guest');
 
 Route::middleware('auth', 'verified')->group(function () {
-    Route::get('/dashboard', function () {return view('pages.admin.dashboard');})->name('dashboard');
-
+    Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
     Route::resource('products', \App\Http\Controllers\ProductController::class);
+
+    Route::get('/settings', function () {return view('pages.admin.settings');})->name('settings');
+
+    Route::post('file-import', [\App\Http\Controllers\ImportExportController::class, 'fileImport'])->name('file-import');
+    Route::get('file-export', [\App\Http\Controllers\ImportExportController::class, 'fileExport'])->name('file-export');
+
+    Route::get('image-export/{product}', [\App\Http\Controllers\ProductController::class, 'downloadImage'])->name('image-export');
+    Route::get('video-export/{product}', [\App\Http\Controllers\ProductController::class, 'downloadVideo'])->name('video-export');
 });
 
 Route::middleware('auth')->group(function () {
