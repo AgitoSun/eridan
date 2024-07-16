@@ -42,7 +42,7 @@
                             </thead>
                             <tbody class="table-border-bottom-0">
                             @foreach($products as $key => $product)
-                                @if($product->images->isEmpty())
+                                @if(!$product->video)
                                     <tr>
                                         <td>
                                             <div class="d-flex">
