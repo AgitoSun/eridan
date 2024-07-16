@@ -54,8 +54,6 @@
                         <tr>
                             <th>Название</th>
                             <th>Артикул</th>
-                            <th>Наличие</th>
-                            <th>Цена</th>
                             <th>Категория</th>
                         </tr>
                         </thead>
@@ -74,12 +72,6 @@
                                     </td>
                                     <td>
                                         {{ $productOnMain->sku }}
-                                    </td>
-                                    <td>
-                                        <span class="badge @if($productOnMain->availability == 'В наличии') bg-label-success @else bg-label-danger @endif">{{ $productOnMain->availability }}</span>
-                                    </td>
-                                    <td>
-                                        {{ \App\Helpers\Helpers::fmtCurrency($productOnMain->price) }}
                                     </td>
                                     <td>
                                         {{ $productOnMain->category['title'] }}
