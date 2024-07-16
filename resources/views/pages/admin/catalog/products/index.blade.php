@@ -62,8 +62,8 @@
                                     <td>
                                         <span class="badge @if($product->availability == 'В наличии') bg-label-success @else bg-label-danger @endif">{{ $product->availability }}</span>
                                     </td>
-                                    {{--                                    <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>--}}
-                                    <td>{{ $product->price }}</td>
+                                                                        <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>
+{{--                                    <td>{{ $product->price }}</td>--}}
                                     <td>{{ $product->category['title'] }}</td>
                                     <td class="text-end">
                                         <div class="dropstart">
