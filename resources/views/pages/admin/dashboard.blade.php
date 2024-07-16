@@ -98,7 +98,7 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                         @foreach($categories as $category)
-                            <tr>
+                            <tr style="height: 53px;">
                                 <td>
                                     <a class="link-dark" href="{{ route('categories.show', $category->id) }}">
                                         {{ $category->title }}
