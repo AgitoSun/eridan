@@ -53,7 +53,8 @@
 
                     @if($product->price)
                         <p class="price mb-3">
-                            <span class="sale text-color-dark">{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</span>
+{{--                            <span class="sale text-color-dark">{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</span>--}}
+                            <span class="sale text-color-dark">{{ $product->price }}</span>
                         </p>
                     @else
                         <p class="price mb-3">

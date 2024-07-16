@@ -54,7 +54,8 @@
                                 </div>
                                 @if($product->price)
                                     <p class="price text-5 mb-3">
-                                        <span class="text-color-dark font-weight-semi-bold">{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</span>
+{{--                                        <span class="text-color-dark font-weight-semi-bold">{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</span>--}}
+                                        <span class="text-color-dark font-weight-semi-bold">{{ $product->price }}</span>
                                     </p>
                                 @else
                                     <p class="price text-5 mb-3">
