@@ -18,7 +18,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::orderByDesc('created_at')->paginate(15);
+//        $products = Product::orderByDesc('created_at')->paginate(15);
+        $products = Product::all();
 
         return \response()->view('pages.admin.catalog.products.index', compact([
             'products',
