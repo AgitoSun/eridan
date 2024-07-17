@@ -81,11 +81,11 @@
                         <div id="dynamicTable">
                             @foreach($product->inserts as $insert)
                                 <div class="row repeater-wrapper">
-                                    <div class="mb-3 col-lg-6 col-xl-10 col-12 mb-0">
+                                    <div class="mb-3 col-10">
                                         <label class="form-label" for="inserts[{{ $insert->id }}][name]">Вставка</label>
                                         <input name="inserts[{{ $insert->id }}][name]" type="text" id="inserts[{{ $insert->id }}][name]" class="form-control" value="{{ $insert->name }}">
                                     </div>
-                                    <div class="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">
+                                    <div class="mb-3 col-2 d-flex align-items-center">
                                         <button type="button" class="remove-tr btn btn-label-danger mt-4">
                                             <i class="bx bx-x me-1"></i>
                                         </button>
@@ -173,11 +173,11 @@
 
             $("#dynamicTable").append(
                 '<div class="row repeater-wrapper">' +
-                '<div class="mb-3 col-lg-6 col-xl-10 col-12 mb-0">' +
+                '<div class="mb-3 col-10">' +
                 '<label class="form-label" for="inserts_new['+i+'][name]">Вставка</label>' +
                 '<input name="inserts_new['+i+'][name]" type="text" id="inserts_new['+i+'][name]" class="form-control">' +
                 '</div>' +
-                '<div class="mb-3 col-lg-12 col-xl-2 col-12 d-flex align-items-center mb-0">' +
+                '<div class="mb-3 col-2 d-flex align-items-center">' +
                 '<button type="button" class="remove-tr btn btn-label-danger mt-4">' +
                 '<i class="bx bx-x me-1"></i>' +
                 '</button>' +
