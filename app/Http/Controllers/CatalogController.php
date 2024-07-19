@@ -24,7 +24,7 @@ class CatalogController extends Controller
     public function category($category): Response
     {
         $categories = Category::all();
-        $products = Product::all()->where('category_id', $category);
+        $products = Product::where('category_id', $category)->orderByDesc('created_at')->paginate(12);
 
         return \response()->view('pages.guest.catalog', compact([
             'products',
