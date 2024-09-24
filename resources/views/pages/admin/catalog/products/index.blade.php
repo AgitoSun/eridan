@@ -3,6 +3,18 @@
 @section('content')
     <x-alerts/>
     <x-title-page>Товары</x-title-page>
+    <div class="row mb-4">
+        <div class="col-md-12">
+            <div class="nav-align-top">
+                <ul class="nav nav-pills flex-column flex-sm-row mb-6">
+                    <li class="nav-item"><a class="nav-link {{ active_link('products') }}" href="{{ route('products.index') }}"><i class="bx bx-filter bx-sm me-1_5></i>"></i> Все</a></li>
+                    @foreach($categories as $category)
+                        <li class="nav-item"><a class="nav-link {{ active_link('products/category/'.$category->id) }}" href="{{ route('products.category.index', $category->id) }}"><i class="bx bx-filter bx-sm me-1_5"></i> {{ $category->title }}</a></li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-xl">
             <div class="card mb-4">
@@ -62,8 +74,7 @@
                                     <td>
                                         <span class="badge @if($product->availability == 'В наличии') bg-label-success @else bg-label-danger @endif">{{ $product->availability }}</span>
                                     </td>
-                                                                        <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>
-{{--                                    <td>{{ $product->price }}</td>--}}
+                                    <td>{{ \App\Helpers\Helpers::fmtCurrency($product->price) }}</td>
                                     <td>{{ $product->category['title'] }}</td>
                                     <td class="text-end">
                                         <div class="dropstart">

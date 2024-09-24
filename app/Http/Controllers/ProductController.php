@@ -16,12 +16,20 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Category $category)
     {
+        $category = $category->id;
+
         $products = Product::orderByDesc('created_at')->paginate(15);
+        if ($category) {
+            $products = Product::orderByDesc('created_at')->where('category_id', $category)->paginate(15);
+        }
+
+        $categories = Category::all();
 
         return \response()->view('pages.admin.catalog.products.index', compact([
             'products',
+            'categories'
         ]));
     }
 
@@ -234,7 +242,8 @@ class ProductController extends Controller
             }
         }
 
-        return redirect()->route('products.index')->with('success', 'Товар ' . $product->title . ' успешно изменен');
+//        return redirect()->route('products.index')->with('success', 'Товар ' . $product->title . ' успешно изменен');
+        return redirect()->back()->with('success', 'Товар ' . $product->title . ' успешно изменен');
     }
 
     /**

@@ -55,6 +55,8 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
     Route::resource('products', \App\Http\Controllers\ProductController::class);
 
+    Route::get('products/category/{category}', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.category.index');
+
     Route::get('/settings', function () {return view('pages.admin.settings');})->name('settings');
 
     Route::post('file-import', [\App\Http\Controllers\ImportExportController::class, 'fileImport'])->name('file-import');

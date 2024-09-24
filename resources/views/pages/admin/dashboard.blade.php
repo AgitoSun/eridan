@@ -100,7 +100,7 @@
                         @foreach($categories as $category)
                             <tr style="height: 53px;">
                                 <td>
-                                    <a class="link-dark" href="{{ route('categories.show', $category->id) }}">
+                                    <a class="link-dark" href="{{ route('products.category.index', $category->id) }}">
                                         {{ $category->title }}
                                     </a>
                                 </td>
