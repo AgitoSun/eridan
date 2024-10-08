@@ -14,8 +14,17 @@
                                 </div>
                         @endforeach
                         @if($product->video)
-                            <div class="position-relative">
-                                <div class="ratio ratio-1x1">
+{{--                            <div class="position-relative">--}}
+{{--                                <div class="ratio ratio-1x1">--}}
+{{--                                    <video id="video" class="float-start" width="100%" height="100%" muted="" loop="" preload="metadata" poster="{{ Storage::url($product->video['frame']) }}">--}}
+{{--                                        <source src="{{ Storage::url($product->video['path']) }}" type="video/mp4">--}}
+{{--                                    </video>--}}
+{{--                                    <a href="#" class="position-absolute top-50pct left-50pct transform3dxy-n50 bg-light rounded-circle d-flex align-items-center justify-content-center text-decoration-none bg-color-hover-primary text-color-hover-light play-button-lg pulseAnim pulseAnimAnimated" data-trigger-play-video="#video" data-trigger-play-video-remove="yes">--}}
+{{--                                        <i class="fas fa-play text-5"></i>--}}
+{{--                                    </a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                                <div class="ratio-1x1">
                                     <video id="video" class="float-start" width="100%" height="100%" muted="" loop="" preload="metadata" poster="{{ Storage::url($product->video['frame']) }}">
                                         <source src="{{ Storage::url($product->video['path']) }}" type="video/mp4">
                                     </video>
@@ -23,7 +32,6 @@
                                         <i class="fas fa-play text-5"></i>
                                     </a>
                                 </div>
-                            </div>
                         @endif
                     </div>
                     <div class="thumb-gallery-thumbs owl-carousel owl-theme manual thumb-gallery-thumbs">

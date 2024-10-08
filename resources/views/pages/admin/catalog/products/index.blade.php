@@ -66,9 +66,22 @@
                                         </div>
                                     </td>
                                     <td>
-                                        <a href="{{ route('products.edit', $product->id) }}">
-                                            {{ $product->title }}
-                                        </a>
+                                        <div class="d-flex align-items-center">
+                                            @foreach($product->images as $image)
+                                                <img src="{{ Storage::url($image->path) }}" alt="{{ $product->title }}" height="32" width="32" class="me-2 rounded-3"
+                                                     tabindex="0"
+                                                     role="button"
+                                                     data-bs-toggle="popover"
+                                                     data-bs-offset="0,14"
+                                                     data-bs-trigger="focus"
+                                                     data-bs-html="true"
+                                                     data-bs-content="<img src='{{ Storage::url($image->path) }}' alt='{{ $product->title }}' height='300' class='me-2 rounded-3'>"
+                                                >
+                                            @endforeach
+                                            <a href="{{ route('products.edit', $product->id) }}">
+                                                {{ $product->title }}
+                                            </a>
+                                        </div>
                                     </td>
                                     <td>{{ $product->sku }}</td>
                                     <td>
@@ -110,3 +123,17 @@
         </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        'use strict';
+
+        (function () {
+            const popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'));
+            const popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+                // added { html: true, sanitize: false } option to render button in content area of popover
+                return new bootstrap.Popover(popoverTriggerEl, { html: true, sanitize: false });
+            });
+        })();
+    </script>
+@endpush
