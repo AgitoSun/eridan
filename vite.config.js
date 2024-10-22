@@ -30,6 +30,8 @@ export default defineConfig({
                 'resources/js/admin/main.js',
                 'resources/js/admin/select2.js',
                 'resources/css/admin/page-auth.css',
+                'resources/css/admin/bootstrap-select.css',
+                'resources/js/admin/bootstrap-select.js',
                 'resources/js/app.js',
             ],
             refresh: true,
