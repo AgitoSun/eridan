@@ -47,7 +47,7 @@
                 @if(count($tags) < 1)
                     <div class="card-body">
                         <x-alert-list-empty>
-                            Для добавления новой категории нажмите кнопку "Добавить"
+                            Для добавления нового тега нажмите кнопку "Добавить"
                         </x-alert-list-empty>
                     </div>
                 @else

@@ -2,7 +2,6 @@
 
 @push('css')
     <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
-{{--    <link rel="stylesheet" href="{{ Vite::asset('public/css/bootstrap-select.css') }}" type="text/css" />--}}
     @vite('resources/css/admin/bootstrap-select.css')
 @endpush
 
