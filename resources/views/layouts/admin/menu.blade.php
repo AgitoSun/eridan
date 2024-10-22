@@ -23,6 +23,12 @@
             <div>Категории</div>
         </a>
     </li>
+    <li class="menu-item {{ active_link('tags*') }}">
+        <a href="{{ route('tags.index') }}" class="menu-link">
+            <i class='menu-icon tf-icons bx bx-tag'></i>
+            <div>Теги</div>
+        </a>
+    </li>
 
     <!-- Приложение -->
         <li class="menu-header small text-uppercase">

@@ -12,8 +12,16 @@
                     <ul class="nav nav-list flex-column">
                         <li class="nav-item"><a class="nav-link {{ active_link('catalog') }}" href="{{ route('catalog.index') }}">Все</a></li>
                         @foreach($categories as $category)
-                            @if(count($category->products)>=1)
+                            @if(!$category->products->isEmpty())
                                 <li class="nav-item"><a class="nav-link {{ active_link('catalog/category/'.$category->id) }}" href="{{ route('catalog.category', $category->id) }}">{{ $category->title }}</a></li>
+                            @endif
+                        @endforeach
+                    </ul>
+                    <h5 class="font-weight-semi-bold pt-3">Теги</h5>
+                    <ul class="nav nav-list flex-column">
+                        @foreach($tags as $tag)
+                            @if(!$tag->products->isEmpty())
+                                <li class="nav-item"><a class="nav-link {{ active_link('catalog/tag/'.$tag->id) }}" href="{{ route('catalog.tag', $tag->id) }}">{{ $tag->name }}</a></li>
                             @endif
                         @endforeach
                     </ul>

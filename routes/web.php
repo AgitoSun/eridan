@@ -22,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [\App\Http\Controllers\Guest\HomeController::class, 'index'])->name('home');
 Route::get('/catalog', [\App\Http\Controllers\CatalogController::class, 'index'])->name('catalog.index');
 Route::get('/catalog/category/{category}', [\App\Http\Controllers\CatalogController::class, 'category'])->name('catalog.category');
+Route::get('/catalog/tag/{tag}', [\App\Http\Controllers\CatalogController::class, 'tag'])->name('catalog.tag');
 Route::get('/catalog/product/{product}', [\App\Http\Controllers\CatalogController::class, 'show'])->name('catalog.show');
 
 Route::get('/how-we-working', function () {
@@ -54,6 +55,7 @@ Route::middleware('auth', 'verified')->group(function () {
     Route::get('/dashboard', [\App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard.index');
     Route::resource('categories', \App\Http\Controllers\CategoryController::class);
     Route::resource('products', \App\Http\Controllers\ProductController::class);
+    Route::resource('tags', \App\Http\Controllers\TagController::class);
 
     Route::get('products/category/{category}', [\App\Http\Controllers\ProductController::class, 'index'])->name('products.category.index');
 

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Image;
 use App\Models\Insert;
 use App\Models\Product;
+use App\Models\Tag;
 use App\Models\Video;
 use Illuminate\Support\Facades\Storage;
 use ProtoneMedia\LaravelFFMpeg\Support\FFMpeg;
@@ -126,11 +127,13 @@ class ProductController extends Controller
     {
         $categories = Category::all();
         $images = $product->images->where('main', 1);
+        $tags = Tag::all();
 
         return \response()->view('pages.admin.catalog.products.edit', compact([
             'product',
             'categories',
             'images',
+            'tags',
         ]));
     }
 
@@ -150,6 +153,8 @@ class ProductController extends Controller
             'category_id' => $request->category_id,
             'favorites' => $request->favorites == 'on' ? true : false
         ]);
+
+        $product->tags()->sync($request->tags);
 
         $inserts_id = [];
         $inserts_key_id = [];
