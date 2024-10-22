@@ -76,19 +76,19 @@
                 </div>
             </div>
             <div class="col-md-6">
-                <div class="card mb-4">
-                    <h5 class="card-header">Теги</h5>
-                    <div class="card-body">
-                        <div class="mb-3 @error('tags') mb-5 @enderror">
-                            <select class="selectpicker w-100 @error('tags') is-invalid @enderror" id="tags" name="tags[]" data-style="btn-default" multiple data-icon-base="bx" data-tick-icon="bx-check text-primary" none-selected-text="asd">
-                                @foreach($tags as $tag)
-                                    <option value="{{ $tag->id }}" @foreach($product->tags as $productTag) @selected($tag->id == $productTag->id) @endforeach>{{ $tag->name }}</option>
-                                @endforeach
-                            </select>
-                            <x-validation-error error="tags"/>
-                        </div>
-                    </div>
-                </div>
+{{--                <div class="card mb-4">--}}
+{{--                    <h5 class="card-header">Теги</h5>--}}
+{{--                    <div class="card-body">--}}
+{{--                        <div class="mb-3 @error('tags') mb-5 @enderror">--}}
+{{--                            <select class="selectpicker w-100 @error('tags') is-invalid @enderror" id="tags" name="tags[]" data-style="btn-default" multiple data-icon-base="bx" data-tick-icon="bx-check text-primary" none-selected-text="asd">--}}
+{{--                                @foreach($tags as $tag)--}}
+{{--                                    <option value="{{ $tag->id }}" @foreach($product->tags as $productTag) @selected($tag->id == $productTag->id) @endforeach>{{ $tag->name }}</option>--}}
+{{--                                @endforeach--}}
+{{--                            </select>--}}
+{{--                            <x-validation-error error="tags"/>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
                 <div class="card mb-4">
                     <h5 class="card-header">Вставки</h5>
                     <div class="card-body">
